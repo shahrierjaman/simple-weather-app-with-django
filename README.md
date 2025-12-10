@@ -14,26 +14,13 @@ description, weather icon, and date.
 
 ## 🛠️ Installation & Setup
 
-### 1️⃣ Clone the Repository
+###  Clone the Repository
 
     git clone https://github.com/your-username/weatherapp.git
     cd weatherapp
 
-### 2️⃣ Create Virtual Environment
 
-    python -m venv venv
-
-### 3️⃣ Activate Virtual Environment
-
-Windows:
-
-    venv\Scripts\activate
-
-Mac/Linux:
-
-    source venv/bin/activate
-
-### 4️⃣ Install Dependencies
+###  Install Dependencies
 
     pip install -r requirements.txt
 
@@ -61,10 +48,4 @@ Visit:
      ├── project/
      └── manage.py
 
-## 📜 License
 
-MIT License
-
-## 💡 Author
-
-Your Name
