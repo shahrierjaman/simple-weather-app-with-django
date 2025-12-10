@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Inter", sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #141e30, #243b55);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            color: #fff;
+        }
+
+        .container {
+            width: 360px;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(18px);
+            border-radius: 22px;
+            padding: 32px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .title {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 18px;
+            letter-spacing: 0.5px;
+        }
+
+        form {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        input {
+            flex: 1;
+            padding: 12px 14px;
+            font-size: 15px;
+            border-radius: 10px;
+            border: none;
+            outline: none;
+        }
+
+        button {
+            padding: 12px 18px;
+            background: #ffffff;
+            color: #000;
+            border-radius: 10px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: 0.2s ease-in-out;
+        }
+
+        button:hover {
+            background: #e6e6e6;
+        }
+
+        .weather-box {
+            margin-top: 20px;
+        }
+
+        .city-name {
+            font-size: 20px;
+            font-weight: 500;
+            margin-bottom: 6px;
+        }
+
+        .icon img {
+            width: 90px;
+            margin-top: 5px;
+        }
+
+        .temp {
+            font-size: 50px;
+            font-weight: 700;
+            margin: 5px 0;
+        }
+
+        .desc {
+            font-size: 17px;
+            opacity: 0.9;
+            text-transform: capitalize;
+            margin-bottom: 5px;
+        }
+
+        .day {
+            font-size: 14px;
+            opacity: 0.8;
+            margin-top: 8px;
+        }
+
+        /* subtle divider */
+        .line {
+            height: 1px;
+            background: rgba(255, 255, 255, 0.12);
+            width: 100%;
+            margin: 18px 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="title">Minimal Weather App</div>
+
+        <form method="POST">
+            {% csrf_token %}
+            <input type="text" name="city" placeholder="Search city..." required>
+            <button type="submit">Go</button>
+        </form>
+
+        {% if des %}
+        <div class="weather-box">
+            
+            <div class="city-name">{{ city }}</div>
+
+            <div class="icon">
+                <img src="https://openweathermap.org/img/wn/{{icon}}@2x.png" alt="Weather Icon">
+            </div>
+
+            <div class="temp">{{ temp }}°C</div>
+            <div class="desc">{{ des }}</div>
+
+            <div class="line"></div>
+
+            <div class="day">{{ day }}</div>
+        </div>
+        {% endif %}
+        
+    </div>
+
+</body>
+</html>
